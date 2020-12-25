@@ -1,1 +1,1 @@
-console.log(`\n * Welcome To Gambling Simulation Problem In Java Script *`);
+console.log(`\n * Welcome To Gambling Simulation Problem In Java Script.. *`);

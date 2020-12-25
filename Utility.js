@@ -2,25 +2,31 @@ class Utility{
 
     dailyMergin = 100;
     everyDayBet = 1;
-    Win = 0;
-    Lose = 0;
-
-    gamble_WinORLose = () => {
-        return Math.floor((Math.random()*1)+1);
-    }    
 
     check_WinORLose = () => {
+        return Math.floor(Math.random()* 2);
+    }    
 
-        let Result = this.gamble_WinORLose();
+    main_Simulation = () => {
 
-        if(Result == 1) {
-            this.Win += 1;
-            this.dailyMergin += 1;
+        while(this.dailyMergin != 150 && this.dailyMergin != 50) {
+
+            let Result = this.check_WinORLose();
+
+            if(Result == 1) {
+                this.dailyMergin += 1;
+                console.log(`\n * GAMBLER WIN *`)
+            }
+            if(Result == 0) {
+                this.dailyMergin -= 1;
+                console.log(`\n * GAMBLER LOSE *`)
+            }
         }
-        if (Result == 0) {
-            this.Lose += 1;
-            this.dailyMergin -= 1;
-        }
+
+        if(this.dailyMergin == 150)
+            console.log(`\n * Gambler Win 50% Of Stake..`);
+        else   
+            console.log(`\n * Gambler Lose 50% Of Stake..`);
     }
 }
 

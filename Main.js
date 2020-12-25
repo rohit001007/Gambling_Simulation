@@ -1,3 +1,3 @@
 const utility = require("./Utility")
 
-utility.check_WinORLose();
+utility.main_Simulation();

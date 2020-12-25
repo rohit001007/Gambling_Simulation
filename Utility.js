@@ -45,8 +45,10 @@ class Utility{
             
             this.Day = this.Day+1;
         }
-        this.luckyDay();    
-    }
+        this.luckyDay();
+        this.playNextMonth();
+    }  
+    
 
     luckyDay = () =>{
 
@@ -69,6 +71,21 @@ class Utility{
         console.log(`\n * Luckiest Day Is : ${luckyDay}, And He Won : ${high}`);
         console.log(`\n * Unluckiest Day Is : ${unluckyDay}, And He Lost : ${low}`);
     }
+
+    playNextMonth = () => {
+
+        var play = 'n'
+        var readlineSync = require('readline-sync');
+
+        play = readlineSync.question(`\n * Do You Want To Play Again : `);
+
+        if(play == 'y')
+            this.main_Simulation();
+        else
+            return;
+        
+    }
+
 }
 
 module.exports = new Utility();

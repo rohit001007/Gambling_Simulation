@@ -1,1 +1,3 @@
-console.log(`\n * Welcome To Gambling Simulation Problem In Java Script.. *`);
+const utility = require("./Utility")
+
+utility.check_WinORLose();

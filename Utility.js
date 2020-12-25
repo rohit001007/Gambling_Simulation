@@ -10,28 +10,31 @@ class Utility{
 
     main_Simulation = () => {
 
-        while(this.Day <= 20){
+        while(this.Day <= 30){
 
             var winStake = 100;
             var lostStake = 100;
 
-            while(this.dailyMergin != 150 && this.dailyMergin != 50) {
+            while(winStake < 150 || lostStake > 50) {
 
                 let Result = this.check_WinORLose();
 
                 if(Result == 1) {
-                    this.dailyMergin += 1;
-                    console.log(`\n ** GAMBLER WIN **`)
+                    winStake = winStake+1;
                 }
                 if(Result == 0) {
-                    this.dailyMergin -= 1;
-                    console.log(`\n ** GAMBLER LOSE **`)
+                    lostStake = lostStake-1;
                 }
             }
-
             let winAmount = winStake - this.dailyMergin;
             let lostAmount= this.dailyMergin - lostStake;
             console.log(` \n * Day# ${this.Day}, Win Amount : ${winAmount}, Lost Amount : ${lostAmount}`);  
+            
+            if(winAmount > lostAmount) 
+                console.log(`\n=> Day# ${this.Day} Win By ${winAmount-lostAmount}`);
+            else
+                console.log(`\n Day# ${this.Day} Lost By ${winAmount-lostAmount}`);
+            
             this.Day = this.Day+1;
         }    
     }
